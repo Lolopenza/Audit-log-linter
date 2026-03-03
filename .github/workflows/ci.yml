@@ -19,8 +19,8 @@ jobs:
           go-version: "1.24"
           cache: true
 
-      - name: Download dependencies
-        run: go mod download
+      - name: Tidy and download dependencies
+        run: go mod tidy && go mod download
 
       - name: Run tests
         run: go test -race -count=1 ./...
@@ -36,6 +36,9 @@ jobs:
         with:
           go-version: "1.24"
           cache: true
+
+      - name: Tidy module
+        run: go mod tidy
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v7
@@ -53,6 +56,9 @@ jobs:
         with:
           go-version: "1.24"
           cache: true
+
+      - name: Tidy module
+        run: go mod tidy
 
       - name: Build standalone binary
         run: go build -o auditloglint ./cmd/auditloglint
