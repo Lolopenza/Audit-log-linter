@@ -1,6 +1,6 @@
 module github.com/anvarulugov/audit-log-linter
 
-go 1.22
+go 1.24
 
 require (
 	github.com/golangci/plugin-module-register v0.1.2
