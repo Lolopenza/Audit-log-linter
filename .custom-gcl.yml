@@ -1,0 +1,19 @@
+# Configuration for building a custom golangci-lint binary with the audit-log-linter plugin.
+# See: https://golangci-lint.run/docs/plugins/module-plugins/
+#
+# Usage:
+#   golangci-lint custom        # builds ./custom-gcl
+#   ./custom-gcl run ./...      # run with plugin active
+
+# The golangci-lint version to embed in the custom binary.
+version: v2.1.6
+
+# Output binary name (default: custom-gcl).
+name: custom-gcl
+
+plugins:
+  - module: "github.com/anvarulugov/audit-log-linter"
+    import: "github.com/anvarulugov/audit-log-linter/plugin"
+    # Replace with the published version tag once released, or use `path` for local dev:
+    # version: v1.0.0
+    path: .

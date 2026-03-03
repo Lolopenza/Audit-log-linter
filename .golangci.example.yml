@@ -1,0 +1,22 @@
+version: "2"
+
+linters:
+  default: none
+  enable:
+    - auditlog
+
+linters-settings:
+  custom:
+    auditlog:
+      type: "module"
+      description: "Checks log messages in log/slog and go.uber.org/zap for style violations."
+      settings:
+        # Set to true to disable individual rules.
+        disable_lowercase: false
+        disable_english_only: false
+        disable_no_special_chars: false
+        disable_no_sensitive_data: false
+        # Additional sensitive keywords to check (merged with built-in list).
+        sensitive_keywords:
+          - "internal_token"
+          - "master_key"
